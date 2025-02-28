@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelsey Lisenbe - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById("modal-img").src = imageSrc;
+            document.getElementById("modal").classList.add("active");
+        }
+
+        function closeModal() {
+            document.getElementById("modal").classList.remove("active");
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Kelsey Lisenbe</h1>
+        <p>Technology Leader | Quality Assurance | Product Management</p>
+    </header>
+
+    <section class="section">
+        <h2>About Me</h2>
+        <p>Experienced technology leader with expertise in QA, test automation, and SaaS product delivery. Passionate about optimizing test strategies and aligning technology solutions with business objectives.</p>
+    </section>
+
+    <section class="section">
+        <h2>Resume</h2>
+        <a href="resume.pdf" class="resume-button" target="_blank">View My Resume</a>
+    </section>
+
+    <section class="section">
+        <h2>LinkedIn Recommendations</h2>
+        <div class="recommendations">
+            <div class="recommendation" onclick="openModal('rec1.jpg')">
+                <img src="rec1.jpg" alt="Recommendation 1">
+            </div>
+            <div class="recommendation" onclick="openModal('rec2.jpg')">
+                <img src="rec2.jpg" alt="Recommendation 2">
+            </div>
+            <div class="recommendation" onclick="openModal('rec3.jpg')">
+                <img src="rec3.jpg" alt="Recommendation 3">
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Certifications</h2>
+        <div class="certifications">
+            <div class="certification" onclick="openModal('cert1.jpg')">
+                <img src="cert1.jpg" alt="Certification 1">
+                <p>A-CSM Certification</p>
+            </div>
+            <div class="certification" onclick="openModal('cert2.jpg')">
+                <img src="cert2.jpg" alt="Certification 2">
+                <p>Certified SAFe Practitioner</p>
+            </div>
+            <div class="certification" onclick="openModal('cert3.jpg')">
+                <img src="cert3.jpg" alt="Certification 3">
+                <p>Atlassian Agile Project Management</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal" class="modal" onclick="closeModal()">
+        <img id="modal-img">
+    </div>
+
+</body>
+</html>

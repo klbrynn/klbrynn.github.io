@@ -1,0 +1,162 @@
+
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #0A0F1E;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #1A2A6C, #4E4376);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  header h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+  }
+  
+  section {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #5AB1BB;
+  }
+  
+  .timeline-section {
+    margin-bottom: 4rem;
+  }
+  
+  .timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #5AB1BB;
+    z-index: 1;
+  }
+  
+  .timeline-item {
+    position: relative;
+    width: 30%;
+    margin: 1rem 0;
+    text-align: center;
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+  
+  .timeline-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .timeline-icon img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid #5AB1BB;
+    background: #fff;
+    object-fit: contain;
+  }
+  
+  .timeline-content {
+    background: #1A2A3C;
+    padding: 1rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    margin-top: 1rem;
+  }
+  
+  .timeline-content h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .timeline-content p {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #1A2A3C;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .timeline-item {
+      width: 45%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .timeline {
+      flex-direction: column;
+    }
+  
+    .timeline::before {
+      left: 20px;
+      right: auto;
+      height: 100%;
+      width: 4px;
+    }
+  
+    .timeline-item {
+      width: 100%;
+      padding-left: 50px;
+      text-align: left;
+    }
+  
+    .timeline-icon img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 2rem;
+    }
+  
+    header p {
+      font-size: 1rem;
+    }
+  
+    .timeline-content h3 {
+      font-size: 1.2rem;
+    }
+  
+    .timeline-content p {
+      font-size: 0.9rem;
+    }
+  }
+  
