@@ -10,28 +10,36 @@ body {
 }
 
 header h1 .certifications {
-  display: block; /* Ensures it takes up its own line */
-  margin-top: 5px; /* Adds space between name and certs */
+  display: block;
+  /* Ensures it takes up its own line */
+  margin-top: 5px;
+  /* Adds space between name and certs */
   font-size: 0.75em;
   font-weight: normal;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
 header {
   text-align: center;
-  padding: 3rem 1rem; /* Increased padding for better spacing */
+  padding: 3rem 1rem;
+  /* Increased padding for better spacing */
   background: linear-gradient(135deg, #1A2A6C, #4E4376);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: padding 0.3s ease;
 }
 
 header h1 {
-  font-family: 'Montserrat', sans-serif; /* Modern font */
-  font-size: clamp(2.5rem, 6vw, 4rem); /* Fluid font size */
-  margin: 0 0 0.5rem 0; /* Added bottom margin */
+  font-family: 'Montserrat', sans-serif;
+  /* Modern font */
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  /* Fluid font size */
+  margin: 0 0 0.5rem 0;
+  /* Added bottom margin */
   font-weight: 800;
   letter-spacing: 1.2px;
   line-height: 1.2;
@@ -39,8 +47,10 @@ header h1 {
 }
 
 header p {
-  font-family: 'Raleway', sans-serif; /* Modern font */
-  font-size: clamp(1rem, 2.5vw, 1.3rem); /* Fluid font size */
+  font-family: 'Raleway', sans-serif;
+  /* Modern font */
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  /* Fluid font size */
   margin-top: 0.5rem;
   opacity: 0.8;
   transition: font-size 0.3s ease;
@@ -130,6 +140,54 @@ footer {
   background: #1A2A3C;
 }
 
+.item {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Vertically align items */
+  justify-content: space-between; /* Distribute space evenly */
+  position: relative;
+  padding: 1rem;
+  background-color: #1A2A3C;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.item h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.item p {
+  margin: 0;
+  color: #ddd;
+}
+
+.image-container {
+  width: 60px; /* Adjust as needed */
+  height: 60px; /* Adjust as needed */
+  border-radius: 50%;
+  overflow: hidden;
+  transform: rotate(5deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0; /* Prevent image container from shrinking */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive Design (adjust as needed) */
+@media (max-width: 768px) {
+  .image-container {
+      width: 50px;
+      height: 50px;
+      transform: rotate(0); /* Remove rotation on mobile */
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .timeline-item {
@@ -217,13 +275,15 @@ footer {
 }
 
 .actions-container {
-  display: inline-block; /* Makes it take only needed space */
+  display: inline-block;
+  /* Makes it take only needed space */
 }
 
 .resume-button {
   display: inline-block;
   padding: 1rem 2rem;
-  background-color: #5AB1BB; /* Or any color you like */
+  background-color: #5AB1BB;
+  /* Or any color you like */
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -233,7 +293,8 @@ footer {
 }
 
 .resume-button:hover {
-  background-color: #4A98A2; /* Slightly darker on hover */
+  background-color: #4A98A2;
+  /* Slightly darker on hover */
   transform: translateY(-3px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
@@ -241,18 +302,21 @@ footer {
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
   .resume-button {
-      padding: 0.8rem 1.5rem;
-      font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
   }
 }
 
 #about {
-  position: relative; /* Needed for absolute positioning of button on smaller screens*/
+  position: relative;
+  /* Needed for absolute positioning of button on smaller screens*/
 }
 
 .resume-container {
-  text-align: center; /* Center the button */
-  margin-top: 2rem; /* Add some space above the button */
+  text-align: center;
+  /* Center the button */
+  margin-top: 2rem;
+  /* Add some space above the button */
 }
 
 .resume-button {
@@ -276,37 +340,47 @@ footer {
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
   .resume-button {
-      padding: 0.8rem 1.5rem;
-      font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
   }
+
   .resume-container {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
   }
+
   #about p {
-      margin-bottom: 70px; /* give space for the button */
+    margin-bottom: 70px;
+    /* give space for the button */
   }
 }
 
 footer a {
-  color: #5AB1BB; /* A color that matches your theme */
-  text-decoration: none; /* Remove underline */
-  font-weight: 600; /* Make it slightly bolder */
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  color: #5AB1BB;
+  /* A color that matches your theme */
+  text-decoration: none;
+  /* Remove underline */
+  font-weight: 600;
+  /* Make it slightly bolder */
+  transition: color 0.3s ease;
+  /* Smooth color transition on hover */
 }
 
 footer a:hover {
-  color: #4A98A2; /* Slightly darker on hover */
+  color: #4A98A2;
+  /* Slightly darker on hover */
 }
 
 
 #education-certifications {
-  background: linear-gradient(135deg, #1A2A6C, #4E4376); /* matching header gradient */
+  background: linear-gradient(135deg, #1A2A6C, #4E4376);
+  /* matching header gradient */
   padding: 3rem 1rem;
-  color: white; /* matching header text color */
+  color: white;
+  /* matching header text color */
 }
 
 #education-certifications h2 {
@@ -324,12 +398,14 @@ footer a:hover {
   margin: 0 auto;
 }
 
-.education, .certification-list {
+.education,
+.certification-list {
   width: 45%;
   margin-bottom: 2rem;
 }
 
-.education h3, .certification-list h3 {
+.education h3,
+.certification-list h3 {
   font-weight: 600;
   margin-bottom: 1rem;
   color: #5AB1BB;
@@ -338,7 +414,8 @@ footer a:hover {
 .item {
   margin-bottom: 1.5rem;
   padding: 1rem;
-  background-color: #1A2A3C; /* matching timeline item background */
+  background-color: #1A2A3C;
+  /* matching timeline item background */
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -356,16 +433,32 @@ footer a:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .education, .certification-list {
-      width: 100%;
+
+  .education,
+  .certification-list {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .image-container {
+      position: static;
+      /* Remove absolute positioning on mobile */
+      margin-top: 1rem;
+      width: 60px;
+      height: 60px;
+      transform: rotate(0);
+      /* Remove rotation on mobile */
+    }
   }
 }
 
 footer a {
   color: #5AB1BB;
   text-decoration: none;
-  font-size: 1.5rem; /* Adjust icon size */
-  margin: 0 0.5rem; /* Add spacing between icons */
+  font-size: 1.5rem;
+  /* Adjust icon size */
+  margin: 0 0.5rem;
+  /* Add spacing between icons */
   transition: color 0.3s ease;
 }
 
@@ -374,8 +467,12 @@ footer a:hover {
 }
 
 footer p {
-  display: flex; /*Use flexbox to align items*/
-  justify-content: center; /*center the icons*/
-  align-items: center; /*center the icons*/
-  gap: 10px; /* add space between text and icons */
+  display: flex;
+  /*Use flexbox to align items*/
+  justify-content: center;
+  /*center the icons*/
+  align-items: center;
+  /*center the icons*/
+  gap: 10px;
+  /* add space between text and icons */
 }
