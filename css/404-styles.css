@@ -1,0 +1,26 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4; /* Or any background color you prefer */
+}
+
+.container {
+  text-align: center;
+}
+
+img {
+  max-width: 300px; /* Adjust as needed */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.error-text {
+  font-family: 'Montserrat', sans-serif; /* Nice font */
+  font-size: 3rem; /* Adjust as needed */
+  color: #333; /* Or any text color you prefer */
+  font-weight: 700;
+  margin: 0;
+}
