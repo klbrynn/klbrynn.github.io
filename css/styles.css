@@ -301,3 +301,81 @@ footer a {
 footer a:hover {
   color: #4A98A2; /* Slightly darker on hover */
 }
+
+
+#education-certifications {
+  background: linear-gradient(135deg, #1A2A6C, #4E4376); /* matching header gradient */
+  padding: 3rem 1rem;
+  color: white; /* matching header text color */
+}
+
+#education-certifications h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #5AB1BB;
+  font-weight: 700;
+}
+
+.education-certifications-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.education, .certification-list {
+  width: 45%;
+  margin-bottom: 2rem;
+}
+
+.education h3, .certification-list h3 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #5AB1BB;
+}
+
+.item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #1A2A3C; /* matching timeline item background */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.item h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.item p {
+  margin: 0;
+  color: #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .education, .certification-list {
+      width: 100%;
+  }
+}
+
+footer a {
+  color: #5AB1BB;
+  text-decoration: none;
+  font-size: 1.5rem; /* Adjust icon size */
+  margin: 0 0.5rem; /* Add spacing between icons */
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #4A98A2;
+}
+
+footer p {
+  display: flex; /*Use flexbox to align items*/
+  justify-content: center; /*center the icons*/
+  align-items: center; /*center the icons*/
+  gap: 10px; /* add space between text and icons */
+}
