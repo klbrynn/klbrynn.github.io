@@ -9,28 +9,41 @@ body {
   box-sizing: border-box;
 }
 
+header h1 .certifications {
+  display: block; /* Ensures it takes up its own line */
+  margin-top: 5px; /* Adds space between name and certs */
+  font-size: 0.75em;
+  font-weight: normal;
+}
+
 *, *::before, *::after {
   box-sizing: inherit;
 }
 
 header {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem; /* Increased padding for better spacing */
   background: linear-gradient(135deg, #1A2A6C, #4E4376);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: padding 0.3s ease;
 }
 
 header h1 {
-  font-size: 3.5rem;
-  margin: 0;
-  font-weight: 900;
-  letter-spacing: 1.5px;
+  font-family: 'Montserrat', sans-serif; /* Modern font */
+  font-size: clamp(2.5rem, 6vw, 4rem); /* Fluid font size */
+  margin: 0 0 0.5rem 0; /* Added bottom margin */
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  line-height: 1.2;
+  transition: font-size 0.3s ease;
 }
 
 header p {
-  font-size: 1.3rem;
+  font-family: 'Raleway', sans-serif; /* Modern font */
+  font-size: clamp(1rem, 2.5vw, 1.3rem); /* Fluid font size */
   margin-top: 0.5rem;
   opacity: 0.8;
+  transition: font-size 0.3s ease;
 }
 
 section {
@@ -127,12 +140,12 @@ footer {
 }
 
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 3rem;
+  header {
+    padding: 2.5rem 1rem;
   }
 
-  header p {
-    font-size: 1.1rem;
+  header h1 {
+    margin-bottom: 0.3rem;
   }
 
   .timeline {
@@ -166,12 +179,12 @@ footer {
 }
 
 @media (max-width: 480px) {
-  header h1 {
-    font-size: 2.5rem;
+  header {
+    padding: 2rem 1rem;
   }
 
-  header p {
-    font-size: 1rem;
+  header h1 {
+    margin-bottom: 0.2rem;
   }
 
   .timeline-content h3 {
@@ -196,4 +209,95 @@ footer {
     height: calc(100% - 2rem);
     top: 0;
   }
+}
+
+#actions {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.actions-container {
+  display: inline-block; /* Makes it take only needed space */
+}
+
+.resume-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #5AB1BB; /* Or any color you like */
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.resume-button:hover {
+  background-color: #4A98A2; /* Slightly darker on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .resume-button {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+  }
+}
+
+#about {
+  position: relative; /* Needed for absolute positioning of button on smaller screens*/
+}
+
+.resume-container {
+  text-align: center; /* Center the button */
+  margin-top: 2rem; /* Add some space above the button */
+}
+
+.resume-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #5AB1BB;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.resume-button:hover {
+  background-color: #4A98A2;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .resume-button {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+  }
+  .resume-container {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+  }
+  #about p {
+      margin-bottom: 70px; /* give space for the button */
+  }
+}
+
+footer a {
+  color: #5AB1BB; /* A color that matches your theme */
+  text-decoration: none; /* Remove underline */
+  font-weight: 600; /* Make it slightly bolder */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+footer a:hover {
+  color: #4A98A2; /* Slightly darker on hover */
 }
