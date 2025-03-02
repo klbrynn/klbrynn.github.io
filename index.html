@@ -1,74 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelsey Lisenbe - Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script>
-        function openModal(imageSrc) {
-            document.getElementById("modal-img").src = imageSrc;
-            document.getElementById("modal").classList.add("active");
-        }
-
-        function closeModal() {
-            document.getElementById("modal").classList.remove("active");
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelsey Lisenbe's Portfolio</title>
+  <link rel="stylesheet" href="css/styles2.css">
 </head>
 <body>
+  <header>
+    <h1>Kelsey Lisenbe, A-CSM, CSPO, MBA</h1>
+    <p> Agile Practitioner | Quality & Operations Enthusiast | End to End Specialiast</p>
+  </header>
 
-    <header>
-        <h1>Kelsey Lisenbe</h1>
-        <p>Technology Leader | Quality Assurance | Product Management</p>
-    </header>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Kelsey, a passionate technology professional with over 15 years of experience in Quality Assurance, Test Automation, and Product Management. I specialize in delivering high-quality testing strategies, leading cross-functional teams, and optimizing test frameworks for enterprise-level software.</p>
+  </section>
 
-    <section class="section">
-        <h2>About Me</h2>
-        <p>Experienced technology leader with expertise in QA, test automation, and SaaS product delivery. Passionate about optimizing test strategies and aligning technology solutions with business objectives.</p>
-    </section>
+  <!-- Leadership Roles Timeline -->
+  <section id="timeline-leadership" class="timeline-section">
+    <h2>Leadership Roles</h2>
+    <div class="timeline">
 
-    <section class="section">
-        <h2>Resume</h2>
-        <a href="resume.pdf" class="resume-button" target="_blank">View My Resume</a>
-    </section>
-
-    <section class="section">
-        <h2>LinkedIn Recommendations</h2>
-        <div class="recommendations">
-            <div class="recommendation" onclick="openModal('rec1.jpg')">
-                <img src="rec1.jpg" alt="Recommendation 1">
-            </div>
-            <div class="recommendation" onclick="openModal('rec2.jpg')">
-                <img src="rec2.jpg" alt="Recommendation 2">
-            </div>
-            <div class="recommendation" onclick="openModal('rec3.jpg')">
-                <img src="rec3.jpg" alt="Recommendation 3">
-            </div>
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/fox.png" alt="Insulet">
         </div>
-    </section>
-
-    <section class="section">
-        <h2>Certifications</h2>
-        <div class="certifications">
-            <div class="certification" onclick="openModal('cert1.jpg')">
-                <img src="cert1.jpg" alt="Certification 1">
-                <p>A-CSM Certification</p>
-            </div>
-            <div class="certification" onclick="openModal('cert2.jpg')">
-                <img src="cert2.jpg" alt="Certification 2">
-                <p>Certified SAFe Practitioner</p>
-            </div>
-            <div class="certification" onclick="openModal('cert3.jpg')">
-                <img src="cert3.jpg" alt="Certification 3">
-                <p>Atlassian Agile Project Management</p>
-            </div>
+        <div class="timeline-content">
+          <h3>Director, Delivery and Operational Strategy</h3>
+          <p>Led quality initiatives for healthcare technology products and managed cross-functional teams ensuring compliance with HEDIS requirements.</p>
         </div>
-    </section>
+      </div>
 
-    <div id="modal" class="modal" onclick="closeModal()">
-        <img id="modal-img">
+   
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/latham-watkins.png" alt="Latham & Watkins">
+        </div>
+        <div class="timeline-content">
+          <h3>Director, QA at Latham & Watkins</h3>
+          <p>Managed large-scale SaaS deployments and led quality assurance strategies for legal technology systems.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/sl.png" alt="Skin Laundry">
+        </div>
+        <div class="timeline-content">
+          <h3>Director, QA at Skin Laundry</h3>
+          <p>Built automated testing frameworks and optimized QA processes, improving product quality and team efficiency.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/sxf.png" alt="Savage X Fenty">
+        </div>
+        <div class="timeline-content">
+          <h3>Senior QA and Release Manager at Savage X Fenty</h3>
+          <p>Oversaw release management and test automation for customer-facing e-commerce platforms.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/paramount.png" alt="Paramount">
+        </div>
+        <div class="timeline-content">
+          <h3>Software Test Engineering Manager at Paramount</h3>
+          <p>Led cross-functional teams to deliver scalable test strategies for streaming technology and digital media.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/cn.png" alt="Condé Nast">
+        </div>
+        <div class="timeline-content">
+          <h3>Director, Product and Platform Integrity at Condé Nast</h3>
+          <p>Led cross-functional teams to deliver scalable test strategies for streaming technology and digital media.</p>
+        </div>
+      </div>
+
     </div>
+  </section>
 
+  <!-- Individual Contributor Roles Timeline -->
+  <section id="timeline-ic" class="timeline-section">
+    <h2>Individual Contributor Roles</h2>
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-icon">
+              <img src="images/fox.png" alt="fox">
+            </div>
+            <div class="timeline-content">
+              <h3>Principal Product Owner and Scrum Master at Fox</h3>
+              <p>Oversaw release management and test automation for customer-facing e-commerce platforms.</p>
+            </div>
+          </div>
+
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/dmvorg.gif" alt="dmv.org">
+        </div>
+        <div class="timeline-content">
+          <h3>Senior QA Engineer at DMV.org</h3>
+          <p>Oversaw release management and test automation for customer-facing e-commerce platforms.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/rcm.png" alt="Real Capital Markets">
+        </div>
+        <div class="timeline-content">
+          <h3>Software Test Engineering at Real Capital Markets</h3>
+          <p>Led cross-functional teams to deliver scalable test strategies for streaming technology and digital media.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/mc.png" alt="Madcap Software">
+        </div>
+        <div class="timeline-content">
+          <h3>Software QA Engineer at MadCap Software</h3>
+          <p>Led cross-functional teams to deliver scalable test strategies for streaming technology and digital media.</p>
+        </div>
+      </div>
+      
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/mc.png" alt="Madcap Software">
+        </div>
+        <div class="timeline-content">
+          <h3>Software Technical Support Engineer at MadCap Software</h3>
+          <p>Led cross-functional teams to deliver scalable test strategies for streaming technology and digital media.</p>
+        </div>
+      </div>
+
+      
+
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Kelsey Lisenbe</p>
+  </footer>
+  <script src="scripts.js"></script>
 </body>
 </html>
