@@ -1,0 +1,133 @@
+/* Basic Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #F5EEE6;
+  color: #5A4A42;
+  line-height: 1.6;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #8C6F5A;
+  transition: padding 0.3s ease;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin: 0 0 0.5rem 0;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  line-height: 1.2;
+  color: #5A4A42;
+  transition: font-size 0.3s ease;
+}
+
+header p {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  margin-top: 0.5rem;
+  opacity: 0.9;
+  color: #7B6652;
+  transition: font-size 0.3s ease;
+}
+
+.banner {
+  max-width: 75%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* About Me & Areas of Specialty Layout */
+#about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#about,
+#focus-areas {
+  flex: 1;
+  background: #E8D8C4;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+#about h2,
+#focus-areas h2 {
+  font-size: 2.5rem;
+  color: #5A4A42;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#about p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #7B6652;
+}
+
+#focus-areas ul {
+  list-style: none;
+  padding: 0;
+}
+
+#focus-areas li {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #7B6652;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+#focus-areas li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #A8907D;
+  font-weight: bold;
+}
+
+/* Resume Button */
+.resume-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.resume-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  color: #F5EEE6;
+  background: #8C6F5A;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.resume-button:hover {
+  background: #A8907D;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  #about-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

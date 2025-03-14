@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelsey Lisenbe's Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4K4N33G98V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4K4N33G98V');
+</script>
+<body>
+
+  <header>
+    <img src="images/Kelsey Lisenbe (1).png" class="banner">
+   </header>
+
+<section id="about-container">
+  <!-- Left Section: About -->
+  <div id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Kelsey, and my background and experience are unique.</p>
+    <p>I have built my career in Software Development with a foundation in Quality. I believe that Quality isn't limited to QA but can be embedded from inception to delivery.</p>
+    <p>My superpowers lie in organization, empathy, and leadership.</p>
+    <div class="resume-container">
+      <a href="./files/Kelsey Lisenbe_Ops.pdf" download="Kelsey_Lisenbe_Resume.pdf" class="resume-button">Download Resume</a>
+    </div>
+  </div>
+
+  <!-- Right Section: Focus Areas -->
+  <div id="focus-areas">
+    <h2>Speciailized Areas</h2>
+    <ul>
+      <li>Agile Transformation & Coaching</li>
+      <li>Software Quality & Delivery Excellence</li>
+      <li>Cross-Functional Collaboration</li>
+      <li>Leadership Development & Mentorship</li>
+      <li>Continuous Improvement & Innovation</li>
+      <li>Creating High Performing Teams</li>
+    </ul>
+  </div>
+</section>
+
+
+  <!-- Leadership Roles Timeline -->
+  <section id="timeline-leadership" class="timeline-section">
+    <h2>Leadership Roles</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/fox.png" alt="Insulet">
+        </div>
+        <div class="timeline-content">
+          <h3>Director, Delivery and Operational Strategy</h3>
+          <p>Led quality initiatives for healthcare technology products and managed cross-functional teams ensuring compliance with HEDIS requirements.</p>
+        </div>
+      </div>
+
+   
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/latham-watkins.png" alt="Latham & Watkins">
+        </div>
+        <div class="timeline-content">
+          <h3>Director, QA at Latham & Watkins</h3>
+          <p>Managed large-scale SaaS deployments and led quality assurance strategies for legal technology systems.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/sl.png" alt="Skin Laundry">
+        </div>
+        <div class="timeline-content">
+          <h3>Director, QA at Skin Laundry</h3>
+          <p>Built automated testing frameworks and optimized QA processes, improving product quality and team efficiency.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/sxf.png" alt="Savage X Fenty">
+        </div>
+        <div class="timeline-content">
+          <h3>Senior QA and Release Manager at Savage X Fenty</h3>
+          <p>Oversaw release management and test automation for customer-facing e-commerce platforms.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/paramount.png" alt="Paramount">
+        </div>
+        <div class="timeline-content">
+          <h3>Software Test Engineering Manager at Paramount</h3>
+          <p>Led cross-functional teams to deliver scalable test strategies for streaming technology and digital media.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/cn.png" alt="Condé Nast">
+        </div>
+        <div class="timeline-content">
+          <h3>Director, Product and Platform Integrity at Condé Nast</h3>
+          <p>Led cross-functional teams to deliver scalable test strategies for streaming technology and digital media.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Individual Contributor Roles Timeline -->
+  <section id="timeline-ic" class="timeline-section">
+    <h2>Individual Contributor Roles</h2>
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-icon">
+              <img src="images/fox.png" alt="fox">
+            </div>
+            <div class="timeline-content">
+              <h3>Principal Product Owner and Scrum Master at Fox</h3>
+              <p>Oversaw release management and test automation for customer-facing e-commerce platforms.</p>
+            </div>
+          </div>
+
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/dmvorg.gif" alt="dmv.org">
+        </div>
+        <div class="timeline-content">
+          <h3>Senior QA Engineer at DMV.org</h3>
+          <p>Oversaw release management and test automation for customer-facing e-commerce platforms.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/rcm.png" alt="Real Capital Markets">
+        </div>
+        <div class="timeline-content">
+          <h3>Software Test Engineering at Real Capital Markets</h3>
+          <p>Led cross-functional teams to deliver scalable test strategies for streaming technology and digital media.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/mc.png" alt="Madcap Software">
+        </div>
+        <div class="timeline-content">
+          <h3>Software QA Engineer at MadCap Software</h3>
+          <p>Led cross-functional teams to deliver scalable test strategies for streaming technology and digital media.</p>
+        </div>
+      </div>
+      
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <img src="images/mc.png" alt="Madcap Software">
+        </div>
+        <div class="timeline-content">
+          <h3>Software Technical Support Engineer at MadCap Software</h3>
+          <p>Led cross-functional teams to deliver scalable test strategies for streaming technology and digital media.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education-certifications" class="section">
+    <h2>Education & Certifications</h2>
+    <div class="education-certifications-container">
+        <!-- Education Section -->
+        <div class="education">
+            <h3>Education</h3>
+            <div class="item">
+                <div class="image-container">
+                    <img src="images/Boston-U.png" alt="Boston University Logo">
+                </div>
+                <div class="text-content">
+                    <h4>Master of Business Administration (MBA)</h4>
+                    <p>Boston University</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="image-container">
+                    <img src="images/purdue.png" alt="Kaplan University Logo">
+                </div>
+                <div class="text-content">
+                    <h4>Bachelor's Degree</h4>
+                    <p>Kaplan University</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certifications Section -->
+        <div class="certification-list">
+            <h3>Certifications</h3>
+            <div class="item">
+              <div class="image-container">
+                <img src="images/acsm.png" alt="Advanced Certified Scrum Master">
+            </div class="text-content">
+                <h4>Advanced Certified Scrum Master (A-CSM)</h4>
+                <p>Scrum Alliance</p>
+            </div>
+            <div class="item">
+              <div class="image-container">
+                <img src="images/sa-cspo-600.webp" alt="Certified Product Owner">
+            </div class="text-content">
+                <h4>Certified Scrum Product Owner (CSPO)</h4>
+                <p>Scrum Alliance</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<footer>
+  <p>
+      <a href="mailto:klbrynn@gmail.com" title="Email Me">
+          <i class="fa	 fa-envelope"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/kelseylisenbe" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+      </a>
+  </p>
+</footer>
+
+
+
+</body>
+</html>

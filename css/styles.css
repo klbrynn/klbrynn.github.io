@@ -1,453 +1,502 @@
+/* =======================================================
+   Global Reset & Base Styles
+========================================================== */
 body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #F5EEE6;
-  color: #5A4A42;
-  line-height: 1.6;
-  overflow-x: hidden;
-  box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* =======================================================
+   Header & Banner
+========================================================== */
 header {
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #8C6F5A;
-  transition: padding 0.3s ease;
-  max-width: 75%;
-  margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2rem;
 }
-
-header h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  margin: 0 0 0.5rem 0;
-  font-weight: 800;
-  letter-spacing: 1.2px;
-  line-height: 1.2;
-  color: #5A4A42;
-  transition: font-size 0.3s ease;
-}
-
-header p {
-  font-family: 'Raleway', sans-serif;
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
-  margin-top: 0.5rem;
-  opacity: 0.9;
-  color: #7B6652;
-  transition: font-size 0.3s ease;
-}
-
 .banner {
-  max-width: 75%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    max-width: 600px;      /* Limit banner width on larger screens */
 }
 
-section {
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-h2 {
+#certifications h2,
+#education h2 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #8C6F5A;
-  font-weight: 900;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
+@media (max-width: 767px) {
+    .banner {
+        max-width: 90%;    /* Slightly narrower on mobile */
+    }
+}
+
+/* =======================================================
+   Timeline Section (Shared by Leadership & IC)
+========================================================== */
 .timeline-section {
-  margin-bottom: 4rem;
+    clear: both;
+    margin: 6rem 0 2rem;  /* Adjust top margin as needed */
+    text-align: center;
 }
-
-.timeline {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  flex-wrap: wrap;
+.timeline-wrapper {
+    position: relative;
+    padding: 2rem 0;
+    min-height: 200px; /* Ensures enough space for the timeline line */
 }
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: #A8907D;
-  z-index: 1;
+.timeline-line {
+    position: absolute;
+    top: 140px;        /* Adjusted to appear below the timeline icons */
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background: #000;
+    z-index: 1;
 }
-
+.horizontal-timeline-container {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    position: relative;
+    z-index: 2;
+    flex-wrap: wrap;
+}
 .timeline-item {
-  position: relative;
-  width: 30%;
-  margin: 1rem 0;
-  text-align: center;
-  z-index: 2;
-  transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+.timeline-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+.timeline-item h3 {
+    font-size: 0.75rem;
+    margin: 0.5rem 0;
+    text-align: center;
+    padding: 0 0.5rem;
+    word-wrap: break-word;
 }
 
-.timeline-item:hover {
-  transform: translateY(-10px);
+.timeline-item img {
+    transition: transform 0.5s ease; /* Smooth transition for the image */
 }
 
-.timeline-icon img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 4px solid #A8907D;
-  background: #F5EEE6;
-  object-fit: contain;
+.timeline-item:hover img {
+    transform: translateY(-5px); /* Raise the logo by 5px */
 }
 
-.timeline-content {
-  background: #E8D8C4;
-  padding: 1rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin-top: 1rem;
+/* Updated Hover Effect for Centered Modal Details */
+.timeline-details {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 600px;
+    max-width: 90%;
+    padding: 2.5rem;
+    background: #fff !important;  /* Force white background */
+    border: 2px solid #333;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    z-index: 1001;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #000;
 }
 
-.timeline-content h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #5A4A42;
+
+.timeline-item:hover .timeline-details {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+/* Responsive Timeline */
+@media (max-width: 1024px) {
+    .timeline-line {
+        left: 2%;
+        right: 2%;
+    }
+    .horizontal-timeline-container {
+        gap: 2rem;
+    }
+    .timeline-item img {
+        width: 60px;
+        height: 60px;
+    }
+    .timeline-details {
+        width: 300px;
+        padding: 1.5rem;
+    }
+}
+@media (max-width: 768px) {
+
+    @media (max-width: 768px) {
+  /* Create a vertical line on the left side of the timeline */
+  .timeline-wrapper {
+    position: relative;
+  }
+  .timeline-wrapper::before {
+    content: "";
+    position: absolute;
+    left: 40px; /* Adjust this value as needed */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #000;
+    z-index: 0;
+  }
+  
+  /* Re-arrange timeline items for a vertical layout */
+  .horizontal-timeline-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding-left: 60px;  /* Ensure there's space for the vertical line and marker */
+  }
+  
+  .timeline-item {
+    flex-direction: row;   /* Icon on left, text on right */
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    box-shadow: none;      /* Optional: remove shadow on mobile */
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.5rem;
+  }
+  
+  
+  
+  /* Adjust the timeline item logo (icon) */
+  .timeline-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+    margin-bottom: 0;
+    z-index: 3;
+  }
+  
+  /* Adjust the text */
+  .timeline-item h3 {
+    font-size: 1rem;
+    text-align: left;
+    margin: 0;
+    z-index: 3;
+  }
+  
+  /* Optional: Adjust modal details for mobile vertical timeline if needed */
+  .timeline-details {
+    width: 90%;
+    padding: 1rem;
+  }
 }
 
-.timeline-content p {
-  margin: 0;
-  font-size: 1rem;
-  opacity: 0.9;
-  color: #7B6652;
+    .timeline-line {
+        display: none;
+    }
+    .timeline-item img {
+        width: 50px;
+        height: 50px;
+    }
+    .timeline-details {
+        width: 90%;
+        padding: 1rem;
+    }
 }
 
-.education-section {
-  margin-top: 4rem;
+/* =======================================================
+   About Me & Specialty Areas Section
+========================================================== */
+#about-specialty-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+#about, #specialty {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+#about:hover, #specialty:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+#about h2, #specialty h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+#about p, #specialty ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+#specialty ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#specialty li {
+    margin: 0.5rem 0;
+}
+@media (max-width: 768px) {
+    #about-specialty-container {
+        flex-direction: column;
+    }
 }
 
-.education-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 2rem;
+/* =======================================================
+   Certifications & Education Section
+========================================================== */
+#certifications-education-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+#certifications, #education {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#certifications:hover, #education:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+#certifications h2, #education h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+#certifications ul, #education ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#certifications li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
 }
 
-.education-item {
-  background: #E8D8C4;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  max-width: 350px;
-  text-align: center;
-  transition: transform 0.3s ease;
+/* Badge List within Certifications (if used) */
+.certifications-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.certifications-list li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cert-badge {
+    width: 50px;
+    height: auto;
+    margin-right: 1rem;
 }
 
-.education-item:hover {
-  transform: translateY(-10px);
+/* Education List Items with Left-Aligned Images */
+#education li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+.edu-logo {
+    width: 50px;
+    height: auto;
+    margin-right: 1rem;
+}
+@media (max-width: 768px) {
+    #certifications-education-container {
+        flex-direction: column;
+    }
 }
 
-.education-image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
+/* =======================================================
+   Individual Contributor Timeline (ID: timeline-ic)
+========================================================== */
+  /* Optionally, add extra bottom padding to the container to create more space */
+  #timeline-ic .horizontal-timeline-container {
+    padding-bottom: 2rem;
+  }
+  
 
-.education-content {
-  padding: 1rem;
+#timeline-ic .timeline {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    top: 200px; 
 }
-
-.education-content h3 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #5A4A42;
-  margin: 0 0 0.5rem;
+#timeline-ic .timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;  /* Adjust as needed */
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.3s ease;
 }
-
-.education-content p {
-  margin: 0;
-  font-size: 1rem;
-  color: #7B6652;
+#timeline-ic .timeline-item:hover {
+    transform: translateY(-4px);
+}
+#timeline-ic .timeline-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+#timeline-ic .timeline-content h3 {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+    color: #333;
+}
+#timeline-ic .timeline-content p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: #555;
+}
+@media (max-width: 768px) {
+    #timeline-ic .timeline {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    #timeline-ic .timeline-item {
+        width: 90%;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+    #timeline-ic .timeline-icon img {
+        width: 50px;
+        height: 50px;
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+    #timeline-ic .timeline-content h3 {
+        font-size: 1rem;
+        margin: 0;
+    }
+    #timeline-ic .timeline-content p {
+        font-size: 0.9rem;
+    }
 }
 
 footer {
-  text-align: center;
-  padding: 1rem 0;
-  background: #D2BBA0;
-}
+    background-color: #D2BBA0;
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  footer a {
+    color: #8C6F5A;
+    font-size: 2rem;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  footer a:hover {
+    color: #A8907D;
+    transform: translateY(-2px);
+  }
+  
 
-footer .fa {
-  font-size: 2rem; /* Adjust this size as needed */
-  margin: 0 1rem; /* Add spacing around the icons */
-}
-
-footer .fab {
-  font-size: 2rem; /* Adjust this size as needed */
-  margin: 0 1rem; /* Add spacing around the icons */
-}
-
-footer a {
-  color: #8C6F5A;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: #A8907D;
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  padding: 1rem;
-  background-color: #E8D8C4;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1.5rem;
-}
-
-.item h4 {
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #5A4A42;
-}
-
-.item p {
-  margin: 0;
-  color: #7B6652;
-}
-
-.image-container {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-  transform: rotate(5deg);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  flex-shrink: 0;
-}
-
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  background: white;
-}
-
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
+    /* Create a vertical line on the left side of the timeline */
+    .timeline-wrapper {
+      position: relative;
+    }
+    .timeline-wrapper::before {
+      content: "";
+      position: absolute;
+      left: 40px; /* Adjust this value as needed */
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #000;
+      z-index: 0;
+    }
     
-  .banner {
-    max-width: 100%;
-    }
-  
-    #about-container {
+    /* Re-arrange timeline items for a vertical layout */
+    .horizontal-timeline-container {
       flex-direction: column;
-      gap: 2rem;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding-left: 60px;  /* Ensure there's space for the vertical line and marker */
     }
-  
-    #about, #focus-areas {
-      padding: 1.5rem;
-      text-align: center;
-      align-self: center;
-    }
-  
-    #about h2, #focus-areas h2 {
-      font-size: 2rem;
-    }
-  
-    #focus-areas ul {
-      display: inline-block;
-      text-align: center;
-    }
-  
-    #focus-areas li {
-      font-size: 1rem;
-    }
-    .resume-button {
-      font-size: 1rem;
+    
+    .timeline-item {
+      flex-direction: row;   /* Icon on left, text on right */
+      align-items: center;
+      width: 100%;
       padding: 0.5rem 1rem;
+      box-shadow: none;      /* Optional: remove shadow on mobile */
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
     }
-
-    footer .fa .fab{
-        font-size: 1.5rem; /* Slightly smaller on mobile for better fit */
-      }
-
-  header{
-    max-width: 78%;
-  }
-
-
+    
+  
+    
+    /* Adjust the timeline item logo (icon) */
+    .timeline-item img {
+      width: 50px;
+      height: 50px;
+      margin-right: 1rem;
+      margin-bottom: 0;
+      z-index: 3;
+    }
+    
+    /* Adjust the text */
+    .timeline-item h3 {
+      font-size: 1rem;
+      text-align: left;
+      margin: 0;
+      z-index: 3;
+    }
+    
+    /* Optional: Adjust modal details for mobile vertical timeline if needed */
+    .timeline-details {
+      width: 90%;
+      padding: 1rem;
+    }
   }
   
-
-  .timeline {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .timeline::before {
-    left: 50%;
-    right: auto;
-    height: calc(100% - 2rem);
-    width: 4px;
-    transform: translateX(-50%);
-    top: 0;
-  }
-
-  .timeline-item {
-    width: 100%;
-  }
-
-  .timeline-icon img {
-    width: 70px;
-    height: 70px;
-  }
-
-
-
-.education-certifications-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.education, .certification-list {
-  flex: 1;
-  min-width: 300px;
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: #E8D8C4;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1.5rem;
-}
-
-.image-container {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.text-content {
-  flex: 1;
-}
-
-.resume-container {
-  text-align: center;
-  /* Center the button */
-  margin-top: 2rem;
-  /* Add some space above the button */
-}
-
-.resume-button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  background-color: #5AB1BB;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* About & Focus Areas Layout */
-#about-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 4rem;
-  padding: 4rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#about, #focus-areas {
-  flex: 1;
-  background: #E8D8C4;
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-#about h2, #focus-areas h2 {
-  font-size: 2.5rem;
-  color: #5A4A42;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-#about p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #7B6652;
-}
-
-#focus-areas ul {
-  list-style: none;
-  padding: 0;
-}
-
-#focus-areas li {
-  font-size: 1.2rem;
-  margin-bottom: 0.8rem;
-  color: #7B6652;
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-#focus-areas li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #A8907D;
-  font-weight: bold;
-}
-
-.resume-container {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.resume-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.2rem;
-  color: #F5EEE6;
-  background: #8C6F5A;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.3s ease;
-}
-
-.resume-button:hover {
-  background: #A8907D;
-}
-
-/* Responsive Layout */
-@media (max-width: 768px) {
-  #about-container {
-    flex-direction: column;
-    gap: 2rem;
-  }
-}
