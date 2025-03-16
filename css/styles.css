@@ -33,18 +33,14 @@ header {
   color: #333;
 }
 
-@media (max-width: 767px) {
-    .banner {
-        max-width: 90%;    /* Slightly narrower on mobile */
-    }
-}
+
 
 /* =======================================================
    Timeline Section (Shared by Leadership & IC)
 ========================================================== */
 .timeline-section {
     clear: both;
-    margin: 6rem 0 2rem;  /* Adjust top margin as needed */
+    margin: 4rem 0 2rem;  /* Adjust top margin as needed */
     text-align: center;
 }
 .timeline-wrapper {
@@ -253,14 +249,47 @@ header {
     line-height: 1.6;
     color: #555;
 }
+
+#specialty li {
+    margin: 0.5rem 0;
+}
 #specialty ul {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-#specialty li {
-    margin: 0.5rem 0;
-}
+  }
+  
+  #specialty ul li {
+    position: relative;
+    padding-left: 1rem; /* Reduced padding to bring text closer */
+    margin-bottom: 1rem;
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  #specialty ul li::before {
+    content: "\f00c"; /* check icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    padding-right: 10px;
+    left: 0; /* or adjust to 0.2rem if you need a tiny bit of spacing */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8C6F5A;
+    font-size: 1rem;
+  }
+  
+  
+  /* Optional hover effect */
+  #specialty ul li:hover {
+    background-color: #E8D8C4; /* subtle highlight color */
+    transform: translateX(5px);
+  }
+  
+
+
 @media (max-width: 768px) {
     #about-specialty-container {
         flex-direction: column;
