@@ -3,208 +3,458 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kelsey Lisenbe &mdash; Technology Leader</title>
+<title>Kelsey Lisenbe — Technology Leader</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --black:#080808;
+  --surface:#111111;
+  --border:#252525;
+  --white:#F2F2F0;
+  --teal:#00C49A;
+  --teal-dim:#00866A;
+  --gray:#666666;
+  --gray-light:#AAAAAA;
+  --bebas:'Bebas Neue',Impact,sans-serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--black);color:var(--white);overflow-x:hidden;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 2.5rem;
+  border-bottom:1px solid var(--border);
+  background:rgba(8,8,8,0.95);
+  backdrop-filter:blur(12px);
+}
+.nav-name{font-family:var(--mono);font-size:12px;color:var(--teal);text-decoration:none;letter-spacing:0.1em;}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+.nav-links a{font-family:var(--mono);font-size:10px;color:var(--gray);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.15s;}
+.nav-links a:hover{color:var(--teal);}
+.nav-cta{border:1px solid var(--teal) !important;color:var(--teal) !important;padding:5px 14px;transition:all 0.15s !important;}
+.nav-cta:hover{background:var(--teal) !important;color:var(--black) !important;}
+
+/* HERO - SPLIT SCREEN */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:100vh;
+  padding-top:52px;
+}
+
+.hero-left{
+  background:var(--black);
+  border-right:1px solid var(--border);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:4rem 3rem;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-name-bg{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%) rotate(-90deg);
+  font-family:var(--bebas);
+  font-size:clamp(120px,14vw,200px);
+  color:rgba(255,255,255,0.03);
+  white-space:nowrap;
+  pointer-events:none;
+  letter-spacing:0.02em;
+  user-select:none;
+}
+
+.hero-eyebrow{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--teal);
+  letter-spacing:0.08em;
+  margin-bottom:1.5rem;
+}
+
+.hero-name{
+  font-family:var(--bebas);
+  font-size:clamp(64px,9vw,120px);
+  line-height:0.92;
+  letter-spacing:0.02em;
+  color:var(--white);
+  margin-bottom:1.5rem;
+}
+
+.hero-name span{color:var(--teal);}
+
+.hero-tagline{
+  font-size:14px;
+  font-weight:300;
+  color:var(--gray-light);
+  line-height:1.75;
+  max-width:380px;
+  margin-bottom:2rem;
+}
+
+.hero-certs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2.5rem;}
+.cert-pill{
+  font-family:var(--mono);font-size:9px;letter-spacing:0.06em;
+  padding:4px 10px;border:1px solid var(--border);color:var(--gray);
+}
+
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;
+  font-family:var(--mono);font-size:10px;font-weight:500;
+  letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;
+  padding:10px 20px;transition:all 0.15s;cursor:pointer;border:none;
+}
+.btn-teal{background:var(--teal);color:var(--black);}
+.btn-teal:hover{background:#00a882;}
+.btn-ghost{background:transparent;color:var(--gray-light);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
+
+/* HERO RIGHT - TERMINAL */
+.hero-right{
+  background:var(--surface);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:4rem 3rem;
+  position:relative;
+  overflow:hidden;
+}
+
+.terminal-header{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:2rem;
+  padding-bottom:1rem;
+  border-bottom:1px solid var(--border);
+}
+.terminal-dot{width:10px;height:10px;border-radius:50%;}
+.terminal-dot.red{background:#FF5F57;}
+.terminal-dot.yellow{background:#FFBD2E;}
+.terminal-dot.green{background:#28CA41;}
+.terminal-title{font-family:var(--mono);font-size:10px;color:var(--gray);letter-spacing:0.08em;margin-left:8px;}
+
+.terminal-body{font-family:var(--mono);font-size:12px;line-height:1.9;}
+.t-line{display:flex;gap:12px;margin-bottom:4px;opacity:0;animation:fadeIn 0.3s ease forwards;}
+.t-prompt{color:var(--teal);flex-shrink:0;}
+.t-key{color:var(--gray-light);}
+.t-val{color:var(--white);}
+.t-val.teal{color:var(--teal);}
+.t-comment{color:#444;font-size:11px;}
+
+@keyframes fadeIn{from{opacity:0;transform:translateX(-8px);}to{opacity:1;transform:translateX(0);}}
+
+.terminal-cursor{
+  display:inline-block;width:8px;height:14px;background:var(--teal);
+  animation:blink 1s step-end infinite;vertical-align:middle;margin-left:4px;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+.hero-scroll-hint{
+  position:absolute;bottom:2rem;right:2rem;
+  font-family:var(--mono);font-size:9px;color:var(--gray);
+  letter-spacing:0.1em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;
+}
+.scroll-arrow{animation:arrowBounce 1.5s ease-in-out infinite;}
+@keyframes arrowBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(4px);}}
+
+/* SKILLS */
+.skills-section{background:#0D0D0D;padding:6rem 0;position:relative;}
+.skills-section::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,var(--border) 1px,transparent 1px);
+  background-size:32px 32px;
+  opacity:0.5;pointer-events:none;
+}
+.skills-inner{max-width:1200px;margin:0 auto;padding:0 3rem;position:relative;}
+
+.section-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.75rem;}
+.section-title{font-family:var(--bebas);font-size:clamp(40px,5vw,64px);letter-spacing:0.02em;color:var(--white);margin-bottom:2.5rem;line-height:1;}
+
+.domains-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+}
+
+.domain-card{
+  background:#0D0D0D;padding:1.75rem 1.5rem;cursor:pointer;
+  transition:background 0.15s;position:relative;overflow:hidden;
+}
+.domain-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform 0.2s;
+}
+.domain-card:hover::after,.domain-card.active::after{transform:scaleX(1);}
+.domain-card:hover,.domain-card.active{background:#151515;}
+
+.domain-icon{font-size:20px;margin-bottom:0.75rem;display:block;}
+.domain-name{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--white);margin-bottom:3px;line-height:1.2;}
+.domain-sub{font-family:var(--mono);font-size:9px;color:var(--gray);letter-spacing:0.04em;}
+
+.detail-panel{
+  display:none;
+  border:1px solid var(--border);border-top:none;
+  background:#111;
+  animation:panelIn 0.2s ease;
+}
+.detail-panel.visible{display:grid;grid-template-columns:1fr 1fr;}
+@keyframes panelIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+
+.panel-left{padding:2rem 2.5rem;border-right:1px solid var(--border);}
+.panel-right{padding:2rem 2.5rem;}
+.panel-label{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);margin-bottom:0.75rem;}
+.panel-title-text{font-family:var(--bebas);font-size:28px;letter-spacing:0.02em;color:var(--white);margin-bottom:1.25rem;}
+.panel-close{float:right;background:none;border:none;cursor:pointer;font-size:14px;color:var(--gray);margin-top:-2px;transition:color 0.15s;}
+.panel-close:hover{color:var(--white);}
+.panel-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.panel-bullets li{font-size:13px;color:#AAA;line-height:1.65;padding-left:1.25rem;position:relative;}
+.panel-bullets li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--teal);}
+.tool-tags{display:flex;flex-wrap:wrap;gap:5px;}
+.tool-tag{font-family:var(--mono);font-size:9px;padding:3px 8px;border:1px solid var(--border);color:var(--gray);letter-spacing:0.04em;}
+
+/* TIMELINE - HORIZONTAL CARDS */
+.timeline-section{background:var(--black);padding:6rem 0;}
+.timeline-inner{max-width:1200px;margin:0 auto;padding:0 3rem;}
+
+.timeline-scroll{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  margin-top:3rem;
+}
+
+.tcard{
+  background:var(--black);
+  padding:2rem;
+  transition:background 0.15s;
+  opacity:0;
+  transform:translateY(12px);
+  transition:opacity 0.4s ease,transform 0.4s ease,background 0.15s;
+}
+.tcard:hover{background:#0D0D0D;}
+.tcard.visible{opacity:1;transform:translateY(0);}
+
+.tcard-date{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;color:var(--teal);text-transform:uppercase;margin-bottom:0.75rem;}
+.tcard-role{font-family:var(--bebas);font-size:22px;letter-spacing:0.02em;color:var(--white);line-height:1.1;margin-bottom:4px;}
+.tcard-company{font-size:12px;color:var(--teal-dim);font-weight:500;margin-bottom:4px;}
+.tcard-note{font-family:var(--mono);font-size:9px;color:var(--gray);letter-spacing:0.04em;margin-bottom:0.75rem;}
+.tcard-desc{font-size:12.5px;color:#666;line-height:1.7;}
+
+/* CONTACT */
+.contact-section{
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  padding:6rem 3rem;
+  text-align:center;
+}
+.contact-label{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;}
+.contact-title{font-family:var(--bebas);font-size:clamp(48px,6vw,80px);letter-spacing:0.02em;color:var(--white);margin-bottom:1rem;line-height:1;}
+.contact-sub{font-size:13px;color:var(--gray);margin-bottom:2.5rem;line-height:1.8;letter-spacing:0.02em;}
+.contact-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+
+footer{
+  background:var(--black);border-top:1px solid var(--border);
+  padding:1.5rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.footer-left{font-family:var(--mono);font-size:10px;color:var(--gray);letter-spacing:0.06em;}
+.footer-right{font-family:var(--mono);font-size:10px;color:#333;letter-spacing:0.04em;}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{flex-direction:column;align-items:flex-start;gap:8px;padding:0.75rem 1.25rem;}
+  .nav-links{gap:0.75rem;flex-wrap:wrap;}
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-left{padding:5rem 1.5rem 2rem;border-right:none;border-bottom:1px solid var(--border);}
+  .hero-right{padding:2rem 1.5rem;}
+  .domains-grid{grid-template-columns:repeat(2,1fr);}
+  .detail-panel.visible{grid-template-columns:1fr;}
+  .panel-left{border-right:none;border-bottom:1px solid var(--border);}
+  .timeline-scroll{grid-template-columns:1fr;}
+  .skills-inner,.timeline-inner,.contact-section{padding:3rem 1.5rem;}
+  footer{padding:1.25rem 1.5rem;flex-direction:column;}
+}
+</style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="nav-name">Kelsey Lisenbe</a>
+  <a href="#" class="nav-name">klbrynn.github.io</a>
   <ul class="nav-links">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#contact" class="btn btn-primary" style="padding: 8px 18px; font-size: 12px;">Get in touch</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
   </ul>
 </nav>
 
 <div class="hero">
-  <p class="hero-eyebrow">Technology Leader &amp; Force Multiplier</p>
-  <h1>Delivering at scale,<br><em>leading with clarity</em></h1>
-  <p class="hero-summary">15+ years building high-performance teams, shipping enterprise software, and turning ambiguous environments into organized, high-velocity delivery machines across media, eCommerce, legal, and SaaS.</p>
-  <div class="hero-certs">
-    <span class="cert-pill">A-CSM</span>
-    <span class="cert-pill">CSPO</span>
-    <span class="cert-pill">SAFe 5 Practitioner</span>
-    <span class="cert-pill">AI for Scrum Masters</span>
-    <span class="cert-pill">MBA Candidate, Boston University 2027</span>
+  <div class="hero-left">
+    <div class="hero-name-bg">LISENBE</div>
+    <p class="hero-eyebrow">// From roadmap to release. Every time.</p>
+    <h1 class="hero-name">Kelsey<br><span>Lisenbe</span></h1>
+    <p class="hero-tagline">Technology leader operating across the full stack of delivery — strategy, engineering, quality, and operations — at FOX, NBCUniversal, Paramount, Savage X Fenty, and beyond.</p>
+    <div class="hero-certs">
+      <span class="cert-pill">A-CSM</span>
+      <span class="cert-pill">CSPO</span>
+      <span class="cert-pill">SAFe 5</span>
+      <span class="cert-pill">AI for Scrum Masters</span>
+      <span class="cert-pill">MBA Candidate &mdash; BU 2027</span>
+    </div>
+    <div class="hero-actions">
+      <a href="mailto:kblisenbe@gmail.com" class="btn btn-teal">kblisenbe@gmail.com</a>
+      <a href="https://linkedin.com/in/kelseylisenbe" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      <a href="files/KLisenbe2026.pdf" class="btn btn-ghost">Resume &darr;</a>
+    </div>
   </div>
-  <div class="hero-actions">
-    <a href="mailto:kblisenbe@gmail.com" class="btn btn-primary">kblisenbe@gmail.com</a>
-    <a href="https://linkedin.com/in/kelseylisenbe" target="_blank" class="btn btn-outline">LinkedIn</a>
-    <a href="files/KLisenbe2026.pdf" class="btn btn-outline">Resume &#8595;</a>
-  </div>
-  <div class="hero-scroll">
-    <span class="scroll-line"></span>
-    <span>Explore below</span>
+
+  <div class="hero-right">
+    <div class="terminal-header">
+      <div class="terminal-dot red"></div>
+      <div class="terminal-dot yellow"></div>
+      <div class="terminal-dot green"></div>
+      <span class="terminal-title">kelsey_lisenbe.sh</span>
+    </div>
+    <div class="terminal-body" id="terminal"></div>
+    <div class="hero-scroll-hint">
+      <span>scroll</span>
+      <span class="scroll-arrow">&#8595;</span>
+    </div>
   </div>
 </div>
 
-<hr class="divider">
-
-<section>
-  <div class="stats-row fade-in">
-    <div class="stat"><div class="stat-number">15<em>+</em></div><div class="stat-label">Years in technology</div></div>
-    <div class="stat"><div class="stat-number">26</div><div class="stat-label">Engineers led globally</div></div>
-    <div class="stat"><div class="stat-number">30<em>%</em></div><div class="stat-label">ARR lift via A/B strategy</div></div>
-    <div class="stat"><div class="stat-number">$5<em>M</em></div><div class="stat-label">ERP integration owned</div></div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<div id="skills" style="padding: 5rem 0;">
-  <div class="inner">
-    <p class="section-label">Skills map</p>
-    <h2 class="section-title" style="margin-bottom: 0.75rem;">Where I create impact</h2>
-    <p style="font-size: 15px; color: var(--ink-muted); margin-bottom: 2.5rem; font-weight: 300;">Select a domain to see real examples from my career.</p>
+<div class="skills-section" id="skills">
+  <div class="skills-inner">
+    <p class="section-eyebrow">Skills map</p>
+    <h2 class="section-title">Where I create impact</h2>
     <div class="domains-grid" id="domainsGrid"></div>
     <div class="detail-panel" id="detailPanel">
-      <div class="panel-header" id="panelHeader">
-        <div class="panel-header-left">
-          <div class="panel-icon-lg" id="panelIconLg"></div>
-          <div class="panel-title" id="panelTitle"></div>
-        </div>
-        <button class="panel-close" onclick="closePanel()">&#x2715;</button>
+      <div class="panel-left">
+        <div class="panel-label">Career highlights <button class="panel-close" onclick="closePanel()">&#x2715;</button></div>
+        <div class="panel-title-text" id="panelTitle"></div>
+        <ul class="panel-bullets" id="panelBullets"></ul>
       </div>
-      <div class="panel-body">
-        <div class="panel-highlights">
-          <h4>Career highlights</h4>
-          <ul class="panel-bullets" id="panelBullets"></ul>
-        </div>
-        <div class="panel-tools">
-          <h4>Tools &amp; technologies</h4>
-          <div class="tool-tags" id="panelTags"></div>
-        </div>
+      <div class="panel-right">
+        <div class="panel-label">Tools &amp; technologies</div>
+        <div class="tool-tags" id="panelTags"></div>
       </div>
     </div>
   </div>
 </div>
 
-<hr class="divider">
-
-<section id="experience">
-  <p class="section-label">Career history</p>
-  <h2 class="section-title">Experience</h2>
-  <div class="timeline">
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-meta">Nov 2025 &ndash; Present</div>
-      <div class="timeline-role">Senior Manager, Technology</div>
-      <div class="timeline-company">FOX Corporation <span style="color:var(--ink-muted); font-weight:300; font-size:12px;">(promoted from Contract Lead BA, Dec 2024)</span></div>
-      <div class="timeline-desc">Lead a 21-person cross-functional team across engineering, QA, and business analysis. Own DORA metrics framework using SOQL and custom Salesforce reporting, a $1M&ndash;$5M Workday/Infor ERP integration, and launched FOX&#39;s first AI-powered BA/QA GPT reducing operational costs 15%. Automated Jira workflows across dev, BA, and QA and built end-to-end automation integrating Copado and TestRail post-execution.</div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-meta">May 2024 &ndash; Dec 2024</div>
-      <div class="timeline-role">Senior Manager, Technology</div>
-      <div class="timeline-company">Latham &amp; Watkins</div>
-      <div class="timeline-desc">Built quality engineering practice from the ground up for a 200+ application enterprise portfolio spanning .NET, C#, SQL, and Azure. Transformed manual testers into agile automation engineers.</div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-meta">Aug 2023 &ndash; Dec 2023</div>
-      <div class="timeline-role">Director, Product Quality</div>
-      <div class="timeline-company">Skin Laundry <span style="color:var(--ink-muted); font-weight:300; font-size:12px;">(Department closure)</span></div>
-      <div class="timeline-desc">Optimized Jira-based delivery workflows, boosting team productivity 25%. Accelerated clinic check-in performance 50% through product discovery and roadmap alignment.</div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-meta">Jun 2022 &ndash; Jul 2023</div>
-      <div class="timeline-role">Director, QA &amp; Platform Operations</div>
-      <div class="timeline-company">Savage X Fenty <span style="color:var(--ink-muted); font-weight:300; font-size:12px;">(Company-wide RIF)</span></div>
-      <div class="timeline-desc">Architected full A/B testing strategy driving 30% ARR increase. Built integrated metrics platforms using Snowflake and Tableau reducing production incidents 25%.</div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-meta">Apr 2021 &ndash; Jul 2022</div>
-      <div class="timeline-role">Senior Manager, Test Engineering</div>
-      <div class="timeline-company">Paramount / Pluto TV</div>
-      <div class="timeline-desc">Hired, led, and mentored a global team of 26 QA engineers across Europe and Latin America across Old CMS, New CMS, Content Feeds, and MAM teams. Improved test coverage 15%, reduced time to market 10%.</div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-meta">May 2017 &ndash; Sep 2018</div>
-      <div class="timeline-role">Director, Product &amp; Platform Integrity</div>
-      <div class="timeline-company">Cond&eacute; Nast <span style="color:var(--ink-muted); font-weight:300; font-size:12px;">(promoted from Senior QA Engineer &mdash; Brand closure)</span></div>
-      <div class="timeline-desc">Drove product vision for live media event platform supporting up to 10,000 attendees. Reduced duplicate work 40% by owning roadmap across QA, Engineering, and Product.</div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-meta">May 2019 &ndash; Apr 2021</div>
-      <div class="timeline-role">Lead Product Owner / Scrum Master</div>
-      <div class="timeline-company">FOX Corporation (Contract)</div>
-      <div class="timeline-desc">Owned product roadmaps and led QA, BA, and product ownership for Salesforce and .NET/SQL/JavaScript applications across FOX Marketing and Entertainment divisions.</div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-meta">Sep 2018 &ndash; May 2019</div>
-      <div class="timeline-role">Senior QA Engineer</div>
-      <div class="timeline-company">DMV.org <span style="color:var(--ink-muted); font-weight:300; font-size:12px;">(Company closure)</span></div>
-      <div class="timeline-desc">Maintained and enhanced data-driven automation test suites (Java/Selenium/TestNG/AWS) across 6 owned-and-operated ad-tech websites driving $2.4M in revenue. Worked extensively with Google DFP, ad tracking, and bid submission tooling across the full ad delivery stack.</div>
-    </div>
-
-    <div class="timeline-item fade-in">
-      <div class="timeline-meta">Earlier career</div>
-      <div class="timeline-role">Senior Test Engineer &middot; Senior QA &amp; Technical Support Engineer</div>
-      <div class="timeline-company">Real Capital Markets &middot; MadCap Software</div>
-      <div class="timeline-desc">At Real Capital Markets, drove program management and product coordination for white-labeled SaaS platforms with B2B clients, managing release notes, UAT sign-off, and delivery testing. At MadCap Software, promoted twice from Technical Support Analyst to Senior Technical Support Engineer to Senior QA Engineer.</div>
-    </div>
-
+<div class="timeline-section" id="experience">
+  <div class="timeline-inner">
+    <p class="section-eyebrow">Career history</p>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline-scroll" id="timelineGrid"></div>
   </div>
-</section>
+</div>
 
-<hr class="divider">
-
-<section id="contact" style="text-align: center;">
-  <p class="section-label" style="justify-content: center;">Let&#39;s connect</p>
-  <h2 class="section-title" style="margin-bottom: 1rem;">Open to the right opportunity</h2>
-  <p style="font-size: 15px; color: var(--ink-muted); margin-bottom: 2.5rem; font-weight: 300; max-width: 480px; margin-left: auto; margin-right: auto;">Fully remote. Based in Orange County, CA. Targeting Director / VP / Chief of Staff roles in technology leadership and operations.</p>
-  <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-    <a href="mailto:kblisenbe@gmail.com" class="btn btn-primary">kblisenbe@gmail.com</a>
-    <a href="https://linkedin.com/in/kelseylisenbe" target="_blank" class="btn btn-outline">linkedin.com/in/kelseylisenbe</a>
-    <a href="tel:5038307714" class="btn btn-outline">(503) 830-7714</a>
+<div class="contact-section" id="contact">
+  <p class="contact-label">// Let's connect</p>
+  <h2 class="contact-title">Open to the<br>right opportunity</h2>
+  <p class="contact-sub">Targeting Director / VP / Chief of Staff roles in technology leadership and operations.</p>
+  <div class="contact-links">
+    <a href="mailto:kblisenbe@gmail.com" class="btn btn-teal">kblisenbe@gmail.com</a>
+    <a href="https://linkedin.com/in/kelseylisenbe" target="_blank" class="btn btn-ghost">LinkedIn</a>
+    <a href="tel:5038307714" class="btn btn-ghost">(503) 830-7714</a>
   </div>
-</section>
+</div>
 
 <footer>
-  <div class="footer-name">Kelsey Lisenbe</div>
-  <div class="footer-links">
-    <a href="mailto:kblisenbe@gmail.com">kblisenbe@gmail.com</a>
-    <a href="https://linkedin.com/in/kelseylisenbe" target="_blank">LinkedIn</a>
-    <a href="tel:5038307714">(503) 830-7714</a>
-  </div>
-  <p class="footer-copy">A-CSM &middot; CSPO &middot; SAFe 5 &middot; MBA Candidate, Boston University 2027</p>
+  <span class="footer-left">Kelsey Lisenbe &mdash; Technology Leader</span>
+  <span class="footer-right">A-CSM &middot; CSPO &middot; SAFe 5 &middot; MBA Candidate, Boston University 2027</span>
 </footer>
+
 <script>
+// TERMINAL ANIMATION
+var lines = [
+  {prompt:"$", key:"name", val:"Kelsey Lisenbe", delay:200},
+  {prompt:"$", key:"current_role", val:"Post Automation Manager @ NBCUniversal", delay:500},
+  {prompt:"$", key:"experience", val:"15+ years end-to-end delivery", delay:1100},
+  {prompt:"$", key:"team_size", val:"21-person cross-functional team (FOX)", delay:1400},
+  {prompt:"$", key:"engineers_led", val:"26 globally (Paramount)", delay:1700},
+  {prompt:"$", key:"agile_transformation", val:"SAFe | Scrum | Kanban | PI Planning", delay:2000},
+  {prompt:"$", key:"erp_owned", val:"$1M-$5M Workday/Infor (FOX)", delay:2300},
+  {prompt:"$", key:"delivery_excellence", val:"DORA metrics | ERP | broadcast engineering", delay:2300},
+  {prompt:"$", key:"ai_built", val:"FOX GPT — first BA/QA AI assistant", delay:2600},
+  {prompt:"$", key:"certifications", val:"A-CSM | CSPO | SAFe 5 | AI for SMs", delay:2900},
+  {prompt:"$", key:"status", val:"open_to_opportunities = true", teal:true, delay:3200}
+];
+
+var terminal = document.getElementById("terminal");
+lines.forEach(function(line) {
+  setTimeout(function() {
+    var el = document.createElement("div");
+    el.className = "t-line";
+    el.style.animationDelay = "0s";
+    el.innerHTML = "<span class=\"t-prompt\">" + line.prompt + "</span><span class=\"t-key\">" + line.key + "</span><span class=\"t-val" + (line.teal ? " teal" : "") + "\"> = \"" + line.val + "\"</span>";
+    terminal.appendChild(el);
+    if (line === lines[lines.length-1]) {
+      var cursor = document.createElement("div");
+      cursor.className = "t-line";
+      cursor.style.animationDelay = "0s";
+      cursor.innerHTML = "<span class=\"t-prompt\">$</span><span class=\"terminal-cursor\"></span>";
+      terminal.appendChild(cursor);
+    }
+  }, line.delay);
+});
+
+// DOMAINS
 var domains = [
-  { id:"product", name:"Product Management", sub:"Discovery, roadmap, and ownership", icon:"\u{1F4CB}", accent:"#2a5a8f", bg:"#d0dff0", panelBg:"#e5eef8",
+  { id:"product", name:"Product Management", sub:"Discovery, roadmap, ownership", icon:"PM",
     bullets:["Led product roadmap and discovery at FOX (both engagements) owning backlog prioritization, user story creation, stakeholder alignment, and release planning across Salesforce and .NET/SQL/JavaScript platforms.","Owned product vision and roadmap at Conde Nast for a live media event platform supporting up to 10,000 attendees, driving cross-functional alignment and reducing duplicate work 40%.","Led product discovery and roadmap alignment at Skin Laundry, connecting customer insights to clear product direction and accelerating clinic check-in performance 50% within four months."],
     tools:["Jira","Roadmap Planning","OKRs","User Stories","Backlog Prioritization","Stakeholder Management","Product Discovery","CSPO Certified"] },
-  { id:"qa", name:"QA & Test Engineering", sub:"Manual, automation, and strategy", icon:"\u{1F52C}", accent:"#c8622a", bg:"#f0ddd0", panelBg:"#f9ede5",
+  { id:"qa", name:"QA & Test Engineering", sub:"Manual, automation, strategy", icon:"QA",
     bullets:["Hired, led, and mentored a global team of 26 QA engineers across Europe and Latin America at Paramount, improving test coverage 15% and reducing time to market 10%.","Architected full A/B testing strategy at Savage X Fenty covering conversion optimization, data pipeline quality, feature flags, UAT, and performance testing, driving 30% ARR increase.","Directed test automation migrations at Latham and Watkins, transforming manual testers into agile automation engineers across API, front-end, and data layers."],
     tools:["Selenium","WebDriverIO","Protractor","Appium","Java","TestNG","REST Assured","Postman","CircleCI","Jenkins","GitHub Actions","CI/CD Quality Gates","Docker","BrowserStack","TestRail","Robot Framework","Grafana","Datadog","Splunk","Sentry","SLOs","Test Strategy"] },
-  { id:"delivery", name:"Delivery & Program Management", sub:"End-to-end ownership, on time", icon:"\u{1F680}", accent:"#2a7d6f", bg:"#d0ece8", panelBg:"#e8f5f2",
+  { id:"delivery", name:"Delivery & Program Mgmt", sub:"End-to-end ownership, on time", icon:"DEL",
     bullets:["Own $1M-$5M Workday/Infor ERP integration at FOX end-to-end, managing design, development, testing, and delivery of a scheduling platform for Sports and Entertainment freelancer operations.","Built DORA metrics framework at FOX establishing the first engineering performance scorecard tracking release frequency, lead time, change failure rate, and MTTR.","Drove program management and product coordination for white-labeled SaaS platforms at Real Capital Markets, managing release notes, UAT sign-off, and delivery testing for B2B clients."],
     tools:["Jira","Workday","Infor","Salesforce","Copado","Mulesoft","Jenkins","CircleCI","GitHub","OKRs","DORA Metrics"] },
-  { id:"people", name:"People Leadership", sub:"Building teams that scale", icon:"\u{1F465}", accent:"#a07830", bg:"#f0e8d0", panelBg:"#f8f2e4",
-    bullets:["Directly manage 21-person cross-functional team at FOX including 8 software engineers, 11 QA professionals, and 2 business analysts across multiple delivery workstreams.","Hired, led, and mentored a global team of 26 QA engineers across Europe and Latin America at Paramount, creating an accountability-first culture and coaching engineers toward promotion.","Promoted twice within single organizations at both FOX and Conde Nast based on demonstrated leadership impact and delivery results."],
-    tools:["Hiring and Onboarding","Performance Management","Agile Coaching","OKRs","Capacity Planning","Stakeholder Management"] },
-  { id:"ops", name:"Operations & Transformation", sub:"Process, governance, and scale", icon:"\u2699\uFE0F", accent:"#6a3a6f", bg:"#e8d0ec", panelBg:"#f3e8f5",
-    bullets:["Automated Jira workflows at FOX streamlining dev, BA, and QA tasks and built end-to-end automation integrating Copado and TestRail, creating a seamless post-execution release flow across the full delivery pipeline.","Designed and implemented enterprise PDLC frameworks and governance standards at Latham and Watkins for a 200+ application portfolio spanning Finance and Legal systems.","Built integrated metrics platforms (TestRail/Tableau) at Savage X Fenty, reducing production incidents 25% and improving delivery transparency."],
+  { id:"people", name:"People Leadership", sub:"Building teams that scale", icon:"PPL",
+    bullets:["At NBCUniversal, manage software engineers and DevOps professionals across post-production automation and broadcast engineering, implementing an org change that unified software and IT delivery under a single engineering model to drive velocity and accountability.","Directly managed 21-person cross-functional team at FOX including 8 software engineers, 11 QA professionals, and 2 business analysts across multiple delivery workstreams.","Hired, led, and mentored a global team of 26 QA engineers across Europe and Latin America at Paramount, creating an accountability-first culture and coaching engineers toward promotion."],
+    tools:["Hiring and Onboarding","Performance Management","Agile Coaching","OKRs","Capacity Planning","Org Design","Stakeholder Management"] },
+  { id:"ops", name:"Operations & Transformation", sub:"Process, governance, scale", icon:"OPS",
+    bullets:["Automated Jira workflows at FOX streamlining dev, BA, and QA tasks and built end-to-end automation integrating Copado and TestRail, creating a seamless post-execution release flow.","Designed and implemented enterprise PDLC frameworks and governance standards at Latham and Watkins for a 200+ application portfolio spanning Finance and Legal systems.","Built integrated metrics platforms (Snowflake/Tableau/TestRail) at Savage X Fenty, reducing production incidents 25% and improving delivery transparency."],
     tools:["Jira","Tableau","Snowflake","AWS","Azure","SQL","Jenkins","Grafana","Datadog","Splunk","Copado","TestRail","Agile/SAFe"] },
-  { id:"ai", name:"AI & Tooling", sub:"Embedding intelligence into delivery", icon:"\u{1F916}", accent:"#4a6a3a", bg:"#d8ecd0", panelBg:"#e8f3e0",
-    bullets:["Launched FOX GPT, the first AI-trained BA/QA assistant at FOX, automating user story and test case creation, reducing operational costs 15% and accelerating delivery cycles.","Led prompt engineering for an AI legal tool at Latham and Watkins, increasing user accuracy and measurable operational productivity across the legal technology team.","Certified in AI for Scrum Masters and actively integrating AI tooling into QA workflows, story creation, and delivery planning across the current FOX team of 21."],
+  { id:"ai", name:"AI & Tooling", sub:"Intelligence into delivery", icon:"AI",
+    bullets:["Launched FOX GPT, the first AI-trained BA/QA assistant at FOX, built with ChatGPT, Replit, Cursor, and GitHub, automating user story and test case creation and reducing operational costs 15%.","Led prompt engineering for an AI legal tool at Latham and Watkins, increasing user accuracy and measurable operational productivity across the legal technology team.","Certified in AI for Scrum Masters and actively integrating AI tooling into QA workflows, story creation, and delivery planning across current engineering teams."],
     tools:["ChatGPT","Replit","Cursor","GitHub","LLM Prompt Engineering","GPT Tooling","AI Workflow Integration","Automation Frameworks"] },
-  { id:"support", name:"Technical Support", sub:"Customer-facing technical depth", icon:"\u{1F6E0}\uFE0F", accent:"#c8622a", bg:"#f0ddd0", panelBg:"#f9ede5",
+  { id:"data", name:"Data & Analytics", sub:"Metrics, pipelines, visibility", icon:"DATA",
+    bullets:["Built integrated metrics platforms at Savage X Fenty using Snowflake and Tableau, establishing a single source of truth for delivery performance and reducing production incidents 25%.","Owned DORA metrics framework at FOX using SOQL and custom Salesforce reporting, synthesizing engineering performance data into executive-ready dashboards.","Led data pipeline quality testing at Savage X Fenty and used Grafana and MongoDB for observability and platform integrity monitoring at Paramount and Conde Nast."],
+    tools:["Snowflake","Tableau","SQL","SOQL","MongoDB","Grafana","Datadog","Splunk","Google DFP","DORA Metrics","Executive Reporting"] },
+  { id:"support", name:"Technical Support", sub:"Customer-facing technical depth", icon:"SUP",
     bullets:["Started at MadCap Software as Technical Support Analyst, promoted to Senior Technical Support Engineer, then to Senior QA Engineer, building product fluency and quality instincts from the customer up.","At Real Capital Markets, managed B2B technical support for enterprise clients in commercial real estate SaaS, owning escalations and serving as the technical bridge between customers and engineering.","Developed troubleshooting depth, written communication discipline, and systems thinking at MadCap and RCM that directly informed every leadership role since."],
-    tools:[".NET","SQL","HTML5","CSS","JavaScript","Git","TFS","Subversion","Perforce"] },
-  { id:"data", name:"Data & Analytics", sub:"Metrics, pipelines, and visibility", icon:"\u{1F4CA}", accent:"#2a7d6f", bg:"#d0ece8", panelBg:"#e8f5f2",
-    bullets:["Built integrated metrics platforms at Savage X Fenty using Snowflake and Tableau, establishing a single source of truth for delivery performance and reducing production incidents 25%.","Owned DORA metrics framework at FOX using SOQL and custom Salesforce reporting, synthesizing engineering performance data into executive-ready dashboards tracking release frequency, lead time, and MTTR.","Led data pipeline quality testing at Savage X Fenty as part of the A/B testing strategy, and used Grafana and MongoDB for observability and platform integrity monitoring at Paramount and Conde Nast."],
-    tools:["Snowflake","Tableau","SQL","SOQL","MongoDB","Grafana","Datadog","Splunk","Google DFP","Ad Tracking","DORA Metrics","Executive Reporting"] }
+    tools:[".NET","SQL","HTML5","CSS","JavaScript","Git","TFS","Subversion","Perforce"] }
+];
+
+// TIMELINE DATA
+var timeline = [
+  {date:"Jul 2026 – Present", role:"Post Automation Manager", company:"NBCUniversal", note:"", desc:"Engineering and DevOps leadership across post-production automation and broadcast systems. Implemented org change unifying software and IT delivery under a single model."},
+  {date:"Nov 2025 – Jul 2026", role:"Senior Manager, Technology", company:"FOX Corporation", note:"Promoted from Contract Lead BA, Dec 2024", desc:"21-person team across engineering, QA, and BA. DORA metrics, $1M-$5M ERP integration, FOX GPT, Jira/Copado/TestRail automation pipeline."},
+  {date:"May – Dec 2024", role:"Senior Manager, Technology", company:"Latham & Watkins", note:"", desc:"Built QA practice for 200+ app portfolio. REST API testing, TestRail, agile automation engineering."},
+  {date:"Aug – Dec 2023", role:"Director, Product Quality", company:"Skin Laundry", note:"Department closure", desc:"25% productivity lift via Jira optimization. 50% check-in performance improvement through product discovery."},
+  {date:"Jun 2022 – Jul 2023", role:"Director, QA & Platform Ops", company:"Savage X Fenty", note:"Company-wide RIF", desc:"30% ARR lift via A/B strategy. Snowflake/Tableau metrics, WebDriverIO/BrowserStack/Appium, PayPal and Adyen integrations."},
+  {date:"Apr 2021 – Jul 2022", role:"Sr. Manager, Quality Engineering", company:"Paramount / Pluto TV", note:"", desc:"Hired and led 26 QA engineers across Europe and Latin America. Java/TestNG/CircleCI/Grafana. 15% coverage improvement, 10% faster to market."},
+  {date:"May 2017 – Sep 2018", role:"Director, Product & Platform Integrity", company:"Conde Nast", note:"Promoted from Sr. QA Engineer — Brand closure", desc:"Product vision for live media event platform supporting 10k attendees. 40% reduction in duplicate work. Protractor, AWS, MongoDB."},
+  {date:"May 2019 – Apr 2021", role:"Lead Product Owner / Scrum Master", company:"FOX Corporation (Contract)", note:"", desc:"Product roadmaps for Salesforce and .NET/SQL/JS across FOX Marketing and Entertainment."},
+  {date:"Sep 2018 – May 2019", role:"Senior QA Engineer", company:"DMV.org", note:"Company closure", desc:"Java/Selenium/TestNG/AWS automation across 6 ad-tech sites, $2.4M revenue. Google DFP and ad delivery tooling."},
+  {date:"Earlier career", role:"Senior Test Engineer", company:"Real Capital Markets", note:"", desc:"PM coordination, UAT sign-off, and B2B technical support for white-labeled SaaS. Served as technical bridge between clients and engineering."},
+  {date:"Earlier career", role:"Sr. QA & Technical Support Engineer", company:"MadCap Software", note:"", desc:"Promoted twice: Technical Support Analyst to Senior Technical Support Engineer to Senior QA Engineer. Enterprise support for Fortune 500 documentation tooling."}
 ];
 
 var activeId = null;
@@ -214,7 +464,27 @@ function renderDomains() {
   var html = "";
   for (var i = 0; i < domains.length; i++) {
     var d = domains[i];
-    html += "<div class=\"domain-card\" id=\"card-" + d.id + "\" onclick=\"toggleDomain('" + d.id + "')\" style=\"--card-accent:" + d.accent + ";--card-bg:" + d.bg + ";\"><div class=\"domain-icon\" style=\"background:" + d.bg + ";\">" + d.icon + "</div><div class=\"domain-name\">" + d.name + "</div><div class=\"domain-sub\">" + d.sub + "</div></div>";
+    html += "<div class=\"domain-card\" id=\"card-" + d.id + "\" onclick=\"toggleDomain('" + d.id + "')\">";
+    html += "<span class=\"domain-icon\">" + d.icon + "</span>";
+    html += "<div class=\"domain-name\">" + d.name + "</div>";
+    html += "<div class=\"domain-sub\">" + d.sub + "</div>";
+    html += "</div>";
+  }
+  grid.innerHTML = html;
+}
+
+function renderTimeline() {
+  var grid = document.getElementById("timelineGrid");
+  var html = "";
+  for (var i = 0; i < timeline.length; i++) {
+    var t = timeline[i];
+    html += "<div class=\"tcard\">";
+    html += "<div class=\"tcard-date\">" + t.date + "</div>";
+    html += "<div class=\"tcard-role\">" + t.role + "</div>";
+    html += "<div class=\"tcard-company\">" + t.company + "</div>";
+    if (t.note) html += "<div class=\"tcard-note\">// " + t.note + "</div>";
+    html += "<div class=\"tcard-desc\">" + t.desc + "</div>";
+    html += "</div>";
   }
   grid.innerHTML = html;
 }
@@ -227,9 +497,7 @@ function toggleDomain(id) {
   var cards = document.querySelectorAll(".domain-card");
   for (var j = 0; j < cards.length; j++) { cards[j].classList.remove("active"); }
   document.getElementById("card-" + id).classList.add("active");
-  document.getElementById("panelIconLg").textContent = d.icon;
   document.getElementById("panelTitle").textContent = d.name;
-  document.getElementById("panelHeader").style.background = d.panelBg;
   var bh = "";
   for (var k = 0; k < d.bullets.length; k++) { bh += "<li>" + d.bullets[k] + "</li>"; }
   document.getElementById("panelBullets").innerHTML = bh;
@@ -249,12 +517,13 @@ function closePanel() {
 }
 
 renderDomains();
+renderTimeline();
 
 var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add("visible"); });
-}, { threshold: 0.1 });
-var fadeEls = document.querySelectorAll(".fade-in");
-for (var i = 0; i < fadeEls.length; i++) { observer.observe(fadeEls[i]); }
+}, { threshold: 0.05 });
+var cards = document.querySelectorAll(".tcard");
+for (var i = 0; i < cards.length; i++) { observer.observe(cards[i]); }
 </script>
 </body>
 </html>
