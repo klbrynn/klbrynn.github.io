@@ -1,0 +1,12 @@
+{
+  "name": "kelsey-portfolio-ai",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "logs": "wrangler tail --format pretty"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

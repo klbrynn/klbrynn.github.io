@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/chat-widget.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -525,5 +526,7 @@ var observer = new IntersectionObserver(function(entries) {
 var cards = document.querySelectorAll(".tcard");
 for (var i = 0; i < cards.length; i++) { observer.observe(cards[i]); }
 </script>
+<script src="js/chat-config.js"></script>
+<script src="js/chat-widget.js" data-floating="true"></script>
 </body>
 </html>

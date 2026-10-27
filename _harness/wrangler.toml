@@ -1,0 +1,25 @@
+# Cloudflare Worker config for the portfolio AI harness.
+name = "kelsey-portfolio-ai"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+
+# Lets worker.js import the .md prompt files as plain text.
+rules = [{ type = "Text", globs = ["**/*.md"], fallthrough = true }]
+
+[vars]
+# Who may call the Worker from a browser. Localhost origins for testing go in .dev.vars.
+ALLOWED_ORIGINS = "https://klbrynn.github.io"
+MODEL = "claude-haiku-5-5"
+MAX_OUTPUT_TOKENS = "500"
+MAX_MESSAGE_CHARS = "800"
+MAX_TURNS = "12"
+MAX_CONVERSATION_CHARS = "8000"
+RATE_LIMIT_PER_10_MIN = "20"
+# Used only for the cost estimate shown in harness.html. Check current Haiku pricing.
+PRICE_INPUT_PER_MTOK = "0.10"
+PRICE_OUTPUT_PER_MTOK = "0.50"
+
+# Secrets are NOT stored here. Set them once with:
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#   npx wrangler secret put DEBUG_TOKEN
+#   npx wrangler secret put CANARY        (optional, any random string)

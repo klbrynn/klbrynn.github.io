@@ -1,0 +1,4 @@
+_harness/node_modules/
+_harness/.dev.vars
+_harness/.wrangler/
+_harness/.dev.vars.example

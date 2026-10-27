@@ -1,0 +1,80 @@
+/* Chat widget. Uses the site's tokens when present, with fallbacks. */
+.kc-panel, .kc-launcher {
+  --kc-bg: var(--black, #080808);
+  --kc-surface: var(--surface, #111111);
+  --kc-border: var(--border, #252525);
+  --kc-text: var(--white, #F2F2F0);
+  --kc-teal: var(--teal, #00C49A);
+  --kc-gray: var(--gray, #666666);
+  --kc-gray-light: var(--gray-light, #AAAAAA);
+  --kc-mono: var(--mono, 'JetBrains Mono', 'Courier New', monospace);
+  --kc-sans: var(--sans, 'DM Sans', system-ui, sans-serif);
+}
+
+.kc-launcher {
+  position: fixed; right: 24px; bottom: 24px; z-index: 200;
+  font-family: var(--kc-mono); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--kc-teal); background: var(--kc-bg);
+  border: 1px solid var(--kc-teal); padding: 12px 18px; cursor: pointer;
+  box-shadow: 0 8px 30px rgba(0, 196, 154, 0.15);
+  transition: background 0.15s, color 0.15s;
+}
+.kc-launcher:hover, .kc-launcher[aria-expanded="true"] { background: var(--kc-teal); color: var(--kc-bg); }
+.kc-launcher:focus-visible, .kc-panel button:focus-visible, .kc-input:focus-visible { outline: 2px solid var(--kc-teal); outline-offset: 2px; }
+
+.kc-panel {
+  display: none; flex-direction: column;
+  position: fixed; right: 24px; bottom: 80px; z-index: 200;
+  width: 380px; height: min(560px, calc(100vh - 120px));
+  background: var(--kc-surface); color: var(--kc-text);
+  border: 1px solid var(--kc-border);
+  font-family: var(--kc-sans);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+.kc-panel.kc-open { display: flex; }
+.kc-panel.kc-inline { display: flex; position: static; width: 100%; height: 100%; min-height: 420px; box-shadow: none; }
+
+.kc-head { display: flex; align-items: center; gap: 7px; padding: 12px 14px; border-bottom: 1px solid var(--kc-border); }
+.kc-dot { width: 9px; height: 9px; border-radius: 50%; }
+.kc-red { background: #FF5F57; } .kc-yellow { background: #FEBC2E; } .kc-green { background: #28C840; }
+.kc-title { font-family: var(--kc-mono); font-size: 11px; color: var(--kc-gray); margin-left: 6px; flex: 1; }
+.kc-close { background: none; border: none; color: var(--kc-gray); font-size: 14px; cursor: pointer; padding: 2px 6px; }
+.kc-close:hover { color: var(--kc-teal); }
+
+.kc-log { flex: 1; overflow-y: auto; padding: 16px 14px; display: flex; flex-direction: column; gap: 10px; }
+.kc-msg { max-width: 88%; font-size: 13.5px; line-height: 1.6; padding: 10px 13px; white-space: pre-wrap; word-wrap: break-word; }
+.kc-assistant { align-self: flex-start; background: var(--kc-bg); border: 1px solid var(--kc-border); }
+.kc-user { align-self: flex-end; background: var(--kc-teal); color: var(--kc-bg); }
+.kc-note { border-color: #6b5a1e; color: var(--kc-gray-light); }
+
+.kc-typing { display: flex; gap: 5px; padding: 14px; }
+.kc-typing span { width: 6px; height: 6px; border-radius: 50%; background: var(--kc-teal); animation: kc-blink 1.2s infinite; }
+.kc-typing span:nth-child(2) { animation-delay: 0.2s; } .kc-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes kc-blink { 0%, 80%, 100% { opacity: 0.2; } 40% { opacity: 1; } }
+
+.kc-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 14px 12px; }
+.kc-chip {
+  font-family: var(--kc-sans); font-size: 12px; text-align: left;
+  color: var(--kc-gray-light); background: transparent;
+  border: 1px solid var(--kc-border); padding: 6px 10px; cursor: pointer;
+}
+.kc-chip:hover { border-color: var(--kc-teal); color: var(--kc-teal); }
+
+.kc-form { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--kc-border); }
+.kc-input {
+  flex: 1; resize: none; font-family: var(--kc-sans); font-size: 13.5px;
+  color: var(--kc-text); background: var(--kc-bg); border: 1px solid var(--kc-border); padding: 9px 11px;
+}
+.kc-send {
+  font-family: var(--kc-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--kc-teal); color: var(--kc-bg); border: none; padding: 0 16px; cursor: pointer;
+}
+.kc-send:hover { background: #00a882; }
+.kc-foot { font-size: 10.5px; color: var(--kc-gray); padding: 0 14px 12px; line-height: 1.5; }
+
+@media (max-width: 520px) {
+  .kc-panel:not(.kc-inline) { right: 0; left: 0; bottom: 0; width: 100%; height: 85vh; border-left: none; border-right: none; }
+  .kc-launcher { right: 16px; bottom: 16px; }
+  .kc-panel.kc-open ~ .kc-launcher { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .kc-typing span { animation: none; opacity: 0.6; } }
